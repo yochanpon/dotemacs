@@ -117,3 +117,10 @@
 
 ;;; magit
 (el-get-bundle magit)
+
+;;; projectile-rails
+(el-get-bundle projectile-rails)
+;;; (require 'projectile)
+(projectile-global-mode)
+;;; (require 'projectile-rails)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
