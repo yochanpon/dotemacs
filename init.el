@@ -124,3 +124,15 @@
 (projectile-global-mode)
 ;;; (require 'projectile-rails)
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
+
+;;; eshell
+;; load environment value
+(load-file (expand-file-name "~/.emacs.d/shellenv.el"))
+(dolist (path (reverse (split-string (getenv "PATH") ":")))
+  (add-to-list 'exec-path path))
+
+(setq eshell-prompt-function
+      (lambda ()
+        (concat "[yoshio"
+                (eshell/pwd)
+                (if (= (user-uid) 0) "]\n# " "]\n$ "))))
