@@ -60,6 +60,11 @@
 
 ;;; dired設定
 (require 'dired-x)
+(ffap-bindings)
+(add-hook 'dired-load-hook (lambda ()
+                  (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)))
+(setq dired-listing-switches (purecopy "-Ahl"))
+(setq dired-dwim-target t)
 
 ;; "yes or no" の選択を "y or n" にする
 (fset 'yes-or-no-p 'y-or-n-p)
